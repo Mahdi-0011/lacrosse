@@ -4,6 +4,8 @@ import HomePage from "./routes/HomePage";
 import AboutPage from "./routes/AboutPage";
 import MonstersPage from "./routes/MonstersPage";
 import MonsterDetailsPage from "./routes/MonsterDetailsPage";
+import AnimalPage from "./routes/AnimalPage";
+import ListPage from "./routes/ListPage";
 
 const router = createBrowserRouter([
 	{
@@ -15,6 +17,16 @@ const router = createBrowserRouter([
 		element: <AboutPage />,
 	},
 	{
+		path: "/List",
+		element: <ListPage />,
+		children: [
+			{
+				path: "/List/:animalsid", 
+				element: <AnimalPage />
+			},
+		],
+	},
+	{
 		path: "/monsters",
 		element: <MonstersPage />,
 		children: [
@@ -24,6 +36,7 @@ const router = createBrowserRouter([
 			},
 		],
 	},
+
 ]);
 
 function App() {
